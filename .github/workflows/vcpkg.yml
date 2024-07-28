@@ -92,6 +92,12 @@ jobs:
              D:\a\tesseract\tesseract\build\bin\Release\tesseract.exe  test\testing\hebrew.png - -l heb --oem 1   --tessdata-dir ..\tessdata
              D:\a\tesseract\tesseract\build\bin\Release\tesseract.exe  test\testing\eurotext.tif - -l fra --oem 1 --tessdata-dir ..\tessdata_best
              D:\a\tesseract\tesseract\build\bin\Release\tesseract.exe  test\testing\arabic.tif - -l ara --oem 1 --psm 6  --tessdata-dir ..\tessdata
+             
+      - name: Upload Tesseract Build Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: tesseract-build
+          path: D:\a\tesseract\tesseract\build\bin\Release\*
 
       - name: List languages in different test tessdata-dir
         run: |
